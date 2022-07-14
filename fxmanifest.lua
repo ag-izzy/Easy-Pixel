@@ -1,8 +1,8 @@
 fx_version 'adamant'
-games {'gta5'}
+game 'gta5'
 
 version '1.0.0'
-author 'Mani'
+author 'theMani_kh'
 description 'Easy Pixel AntiCheat For QBCore'
 
 client_script {
