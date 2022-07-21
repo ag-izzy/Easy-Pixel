@@ -2380,4 +2380,4 @@ AM.BlacklistedEntities = {
 	"prop_cable_hook_01",
 	"stt_prop_stunt_bblock_qp2",
 	"stt_prop_stunt_track_turnice"
-	}
+}

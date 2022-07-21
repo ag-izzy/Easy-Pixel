@@ -1,27 +1,21 @@
+local QBCore = exports[EZPXS.CoreName]:GetCoreObject()
 local isSpawn = false
+local isAdmin = false
 
-AddEventHandler("playerSpawned", function()
+RegisterNetEvent("QBCore:Client:OnPlayerLoaded")
+AddEventHandler("QBCore:Client:OnPlayerLoaded", function()
+    QBCore.Functions.TriggerCallback("EZPX:isAdmin", function(Admin)
+        if Admin then
+            isAdmin = true
+        end
+    end)
     isSpawn = true
 end)
 
-local isAdmin = false
-
-QBCore = nil
-
-CreateThread(function()
-    while QBCore == nil do
-        TriggerEvent(EZPXC.SharedObject, function(obj) QBCore = obj end)
-        Wait(0)
-    end
+RegisterNetEvent("QBCore:Client:OnPlayerUnload")
+AddEventHandler("QBCore:Client:OnPlayerUnload", function()
+    isSpawn = false
 end)
-
-RegisterNetEvent('qb-admin:client:openMenu')
-AddEventHandler('qb-admin:client:openMenu', function(group, dealers)
-    if group ~= "user" then
-        isAdmin = true
-    end
-end)
-
 
 RegisterNetEvent('EZPX:DeleteEntity')
 AddEventHandler('EZPX:DeleteEntity', function(entity)

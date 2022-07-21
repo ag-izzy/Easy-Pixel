@@ -1,7 +1,4 @@
-QBCore = nil
-TriggerEvent(EZPXS.SharedObject, function(obj) QBCore = obj end)
-
-ExecuteCommand('sets Easy-Pixel Active')
+local QBCore = exports[EZPXS.CoreName]:GetCoreObject()
 
 local d = LoadResourceFile(GetCurrentResourceName(),    "configs/serverconfig.lua")
 local e = LoadResourceFile(GetCurrentResourceName(), 	"configs/clientconfig.lua")
@@ -169,6 +166,15 @@ function EZPXLog(source, s, t, u)
 		end
 	end
 end
+
+QBCore.Functions.CreateCallback("EZPX:isAdmin", function(source, cb)
+    local src = source
+	if QBCore.Functions.HasPermission(src, EZPXS.Alarm) then
+		cb(true)
+	else
+		cb(false)
+	end
+end)
 
 local J = ""
 local K = ""

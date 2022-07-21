@@ -1,8 +1,5 @@
 EZPXC = {}
 
----# Get Object #---
-EZPXC.SharedObject = "QBCore:GetObject"
-
 ---# Anti Blip Player #---
 EZPXC.AntiBlips = true
 

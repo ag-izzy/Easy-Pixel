@@ -2,14 +2,14 @@
 EZPXS = {}
 
 ---# Get Object #---
-EZPXS.SharedObject = "QBCore:GetObject"
+EZPXS.CoreName = 'qb-core'
 
 ---# Log System #---
 EZPXS.Chat = true
 
 ---# Whitelisted #---
-EZPXS.Alarm = "support" --only send alarm for this group or false
-EZPXS.WhitelistedRank = false  --Full Whitelisted for this and higher rank or false
+EZPXS.Alarm = "admin" --only send alarm for this group or false
+EZPXS.WhitelistedRank = 'god'  --Full Whitelisted for this and higher rank or false
 EZPXS.WhitelistedMember = {  --fully whitelisted
     'steam:00000000000',
 }
