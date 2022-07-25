@@ -94,9 +94,6 @@ EZPXS.AntiBlackListWeaponKick = false
 ---# Anti God Mod #---
 EZPXS.AntiGodModKick = false
 
----# Anti Teleport #---
-EZPXS.AntiTeleportKick = true
-
 ---# Anti Invisble #---
 EZPXS.AntiInvisbleKick = false
 

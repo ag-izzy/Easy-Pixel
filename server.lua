@@ -352,11 +352,6 @@ AddEventHandler("AntiNightVision", function(playerid, user, log, reason)
 	end
 end)
 
-RegisterNetEvent("AntiTeleport")
-AddEventHandler("AntiTeleport", function(playerid, user, log, reason)
-	EZPXLog(source, log, reason, EZPXS.AntiTeleportKick)
-end)
-
 RegisterNetEvent("BlackListWeapon")
 AddEventHandler("BlackListWeapon", function(playerid, user, log, reason)
 	EZPXLog(source, log, reason, EZPXS.AntiBlackListWeaponKick)

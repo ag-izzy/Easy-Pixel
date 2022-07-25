@@ -31,6 +31,10 @@ EZPXC.MaxSpeed = 10
 ---# Anti Vehicle Spawner #---
 EZPXC.VehicleSpwan = true
 EZPXC.AntiRequestVehicle = false
+EZPXC.VehicleSpawnWhiteListResource = { -- Add Resource Name For Whitelist to spawn Vehicle
+    'qb-core',
+    'qb-vehicleshop'
+}
 
 ---# Anti Infinity Ammo #---
 EZPXC.AntiInfinityAmmo = true

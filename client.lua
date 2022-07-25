@@ -156,31 +156,6 @@ if EZPXC.AntiGodmode then
     end)
 end
 
-if EZPXC.AntiTeleport then
-    CreateThread(function()
-        Wait(EZPXC.CitizenWait)
-        while true do
-            Wait(EZPXC.CitizenWait)
-            local ped = PlayerPedId()
-            local posx,posy,posz = table.unpack(GetEntityCoords(ped,true))
-            local still = IsPedStill(ped)
-            local vel = GetEntitySpeed(ped)
-            local ped = PlayerPedId()
-            local speed = GetEntitySpeed(ped)
-            Wait(EZPXC.CitizenWait)
-            local more = speed - 8.0
-            if not IsEntityVisible(PlayerPedId()) then
-                SetEntityHealth(PlayerPedId(), -100)
-            end
-            newx,newy,newz = table.unpack(GetEntityCoords(ped,true))
-            newPed = PlayerPedId()
-            if GetDistanceBetweenCoords(posx,posy,posz, newx,newy,newz) > 1 and still == IsPedStill(ped) and vel == GetEntitySpeed(ped) and ped == newPed and not isAdmin then
-                TriggerServerEvent("AntiTeleport", GetPlayerServerId(PlayerId()), GetPlayerName(PlayerId()), "Anti Teleport", "Try For Teleport in other coords")
-            end
-        end
-    end)
-end
-
 if EZPXC.AntiFastRun then
     CreateThread(function()
         Wait(EZPXC.CitizenWait)
@@ -404,7 +379,7 @@ AddEventHandler('EZPX:checkentity',function(obj)
         local model = GetEntityModel(ent)
         if type == 2 then
             local script = GetEntityScript(ent)
-            if script ~= nil and script ~= "qb-core" and script ~= "qb-humanlabs" and script ~= "qb-cocaine" and script ~= "qb-donoshop" and script ~= "qb-vehicleshop" and script ~= "qb-trains" and model ~= 0 then
+            if script ~= nil and not EZPXC.VehicleSpawnWhiteListResource[script] and model ~= 0 then
                 TriggerServerEvent("EZPX:SetLog", GetPlayerServerId(PlayerId()), GetPlayerName(PlayerId()), "Anti Spawn Car", "Try For Spawn vehicle("..model..") By Script : ".. script .."")
                 QBCore.Functions.DeleteVehicle(ent)
             else
